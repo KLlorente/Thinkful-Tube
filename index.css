@@ -1,0 +1,7 @@
+.js-search-form label,
+.js-search-form input,
+.js-search-form button {
+  display: block;
+  padding: .2em .5em;
+  margin: .25em 0;
+}

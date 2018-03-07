@@ -13,16 +13,20 @@ function getDataFromApi(searchTerm, callback) {
 function renderResult(result) {
   return `
   <div>
-	  <h2>
-		<a class="js-result-name" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">${result.snippet.title}</a> 
-		</h2>
-	  <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank"><img src="${result.snippet.thumbnails.medium.url}"></a>
+    <h2>
+    <a class="js-result-name" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">${result.snippet.title}</a> 
+    </h2>
+    <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank"><img src="${result.snippet.thumbnails.medium.url}"></a>
   `; 
 }
 
 function displayYouTubeSearchData(data) {
   const results = data.items.map((item, index) => renderResult(item)); 
-  $('.js-search-results').html(results); 
+  $('.js-search-results').html(results);
+  
+  $('.js-search-results')
+    .prop('hidden', false)
+    .html(renderResult);
 }
 
 function watchSubmit() {
